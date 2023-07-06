@@ -281,14 +281,14 @@ local workspace = game:GetService("Workspace")
 local Players = game:GetService("Players")
 local plr = Players.LocalPlayer
 local char = plr.Character
-	  li.Atmosphere:Destroy()
 	  for i,v in pairs(cam) do
 	    v:Destroy()
 	  end
+	  li.Atmosphere:Destroy()
 	end
 end)
 
-Tab4Section:NewButton("Remove Terrain", "", function()
+Tab4Section:NewButton("Remove Terrain (Not Working)", "", function()
     local chatbot1 = true
 	if chatbot1 then
 	local li = game:GetService("Lighting")  
@@ -341,7 +341,7 @@ local workspace = game:GetService("Workspace")
 local Players = game:GetService("Players")
 local plr = Players.LocalPlayer
 local char = plr.Character
-	  char.HumanoidRootPart.CFrame = CFrame.new(352.791, 23.3734, 261.637)
+	  char.HumanoidRootPart.CFrame = CFrame.new(375, 15, 259)
 	end
 end)
 
