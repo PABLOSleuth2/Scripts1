@@ -190,7 +190,7 @@ local char = plr.Character
 	end
 end)
 
-Tab1Section:NewButton("Grab Items For Free", "Checks If Player has items it will put our backpack", function()
+Tab1Section:NewButton("Grab Items For Free (Not Working)", "Checks If Player has items it will put our backpack", function()
 if chatbot1 then
     local Players = game:GetService("Players")
     local lp = Players.LocalPlayer
@@ -283,8 +283,6 @@ local char = plr.Character
 	  li.Atmosphere:Destroy()
 	  workspace.Camera.FocusCC.Enabled = false
 	  workspace.Camera.Blur:Destroy()
-	  workspace.Camera.CrawlBlur:Destroy()
-	  workspace.Camera.CrawlCC:Destroy()
 	  workspace.Camera.FocusCC:Destroy()
 	end
 end)
@@ -346,11 +344,11 @@ local char = plr.Character
 	end
 end)
 
-Tab2Section:NewSlider("Speed", "Sussy Speed", 250, 16, function(v)
+Tab2Section:NewSlider("Speed", "Sussy Speed", 250, 34, function(v)
     game.Players.LocalPlayer.Character.CharValues.RunSpeed.Value = v
 end)
   
-Tab2Section:NewSlider("JumpPower", "Sussy JumpPower", 250, 0, function(b)
+Tab2Section:NewSlider("JumpPower", "Sussy JumpPower", 250, 35, function(b)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = b
 end)
   
@@ -413,6 +411,12 @@ local sgui = game:GetService("StarterGui")
   rre.UpdatePlayerBlockList:Destroy()
   sgui.DeviceScript:Destroy()
   print("Looping Deleting Security")
+    
+    
+    if workspace.Camera.CrawlBlur.Enabled == true then
+      workspace.Camera.CrawlBlur:Destroy()
+      workspace.Camera.CrawlCC:Destroy()
+    end
 end
 end
 end
