@@ -180,16 +180,17 @@ Tab1Section:NewButton("Grab Items For Free", "Checks If Player has items it will
     local chatbot1 = true
 	if chatbot1 then
 local Players = game:GetService("Players")
+local plrs = Players:GetDescendants()	  
 local lp = Players.LocalPlayer
-
-for i, v in pairs(Players:GetPlayers()) do
-    local backpack = v.Backpack
-    if backpack and backpack:IsA("Tool") and v.Parent == nil then
-        local clonedTool = backpack:Clone()
-        clonedTool.Parent = lp.Backpack
-    end
-end
-	end
+	  for i,v in pairs(plrs) do
+	    
+	    v.Backpack:GetDescendants()
+	   if v:IsA("Tool") then
+	     v:Clone()
+	     v.Parent = lp.Backpack
+	   end
+	  end
+	end
 end)
 
 Tab2Section:NewButton("Remove FallDamage", "Removes FallDamage", function()
