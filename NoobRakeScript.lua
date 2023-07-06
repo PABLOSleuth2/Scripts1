@@ -255,7 +255,7 @@ local char = plr.Character
 	end
 end)
 
-Tab2Section:NewButton("Unlimited Health", "UnlimitedHealth", function()
+Tab2Section:NewButton("Unlimited Health (Not Working)", "UnlimitedHealth", function()
     local chatbot1 = true
 	if chatbot1 then
 	local splayer = game:GetService("StarterPlayer")  
@@ -276,14 +276,15 @@ Tab2Section:NewButton("Delete Blur", "Delete Blur", function()
     local chatbot1 = true
 	if chatbot1 then
 	local li = game:GetService("Lighting")  
-local workspace = game:GetService("Workspace")
+local workspace = game:GetService("Workspace")
+	  local cam = game:GetService("Workspace").Camera:GetDescendants()
 local Players = game:GetService("Players")
 local plr = Players.LocalPlayer
 local char = plr.Character
 	  li.Atmosphere:Destroy()
-	  workspace.Camera.FocusCC.Enabled = false
-	  workspace.Camera.Blur:Destroy()
-	  workspace.Camera.FocusCC:Destroy()
+	  for i,v in pairs(cam) do
+	    v:Destroy()
+	  end
 	end
 end)
 
