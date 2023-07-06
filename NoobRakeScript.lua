@@ -177,20 +177,24 @@ local char = plr.Character
 end)
 
 Tab1Section:NewButton("Grab Items For Free", "Checks If Player has items it will put our backpack", function()
-    local chatbot1 = true
-	if chatbot1 then
-local Players = game:GetService("Players")
-local plrs = Players:GetDescendants()	  
-local lp = Players.LocalPlayer
-	  for i,v in pairs(plrs) do
-	    
-	    v.Backpack:GetDescendants()
-	   if v:IsA("Tool") then
-	     v:Clone()
-	     v.Parent = lp.Backpack
-	   end
-	  end
-	end
+if chatbot1 then
+    local Players = game:GetService("Players")
+    local lp = Players.LocalPlayer
+    local plrs = Players:GetChildren()
+
+    for i, v in ipairs(plrs) do
+        if v ~= lp and v.Parent ~= nil then -- Exclude the local player and check if the player has a parent
+            local backpack = v:FindFirstChild("Backpack")
+            if backpack then
+                for _, tool in ipairs(backpack:GetChildren()) do
+                    if tool:IsA("Tool") and not lp.Backpack:FindFirstChild(tool.Name) then
+                        tool:Clone().Parent = lp.Backpack
+                    end
+                end
+            end
+        end
+    end
+end
 end)
 
 Tab2Section:NewButton("Remove FallDamage", "Removes FallDamage", function()
@@ -310,7 +314,7 @@ end)
 Tab4Section:NewButton("Old Dex 2.0.0", "", function()
     local chatbot1 = true
 	if chatbot1 then
-	loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/PABLOSleuth2/Internet-connection-pocketcode/main/Dex"))()
+	loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/PABLOSleuth2/Internet-connection-pocketcode/main/Dex?token=GHSAT0AAAAAACDEIS5DTL5HKW2IMD26ZSTCZFGW6AQ"))()
 	end
 end)
 
