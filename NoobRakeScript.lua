@@ -19,9 +19,23 @@ if re:FindFirstChild("KickPlayer") then
 end
 
 local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
-local Window = Library.CreateLib("RAKOOF SCRIPT! 0.1.1", "Ocean")
+local Window = Library.CreateLib("RAKOOF SCRIPT! 0.1.1", "DarkTheme")
 local Tab1 = Window:NewTab("RakOOF")
-local Tab1Section = Tab1:NewSection("RakOOF Script")
+local Tab1Section = Tab1:NewSection("RakOOF Script!")
+local started = false
+local test = Tab1Section:NewButton("Welcome To Script!", "", function()
+end)
+
+wait(3)
+
+test:UpdateButton("The Script By: PabloSleuth2")
+
+wait(3)
+
+test:UpdateButton("Enjoy! (PabloSleuth2)")
+wait(2)
+local started = true
+if started == true then
 local Tab2 = Window:NewTab("Player")
 local Tab2Section = Tab2:NewSection("Player Properties")
 local Tab3 = Window:NewTab("Locations")
@@ -399,5 +413,6 @@ local sgui = game:GetService("StarterGui")
   rre.UpdatePlayerBlockList:Destroy()
   sgui.DeviceScript:Destroy()
   print("Looping Deleting Security")
+end
 end
 end
