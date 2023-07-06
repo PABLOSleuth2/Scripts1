@@ -187,7 +187,10 @@ if chatbot1 then
             local backpack = v:FindFirstChild("Backpack")
             if backpack then
                 for _, tool in ipairs(backpack:GetChildren()) do
-                    if tool:IsA("Tool") and not lp.Backpack:FindFirstChild(tool.Name) then
+                    if tool:IsA("Watch") and not lp.Backpack:FindFirstChild(tool.Name) then
+                        tool:Clone().Parent = lp.Backpack
+                    end
+                  if tool:IsA("Map") and not lp.Backpack:FindFirstChild(tool.Name) then
                         tool:Clone().Parent = lp.Backpack
                     end
                 end
@@ -314,7 +317,7 @@ end)
 Tab4Section:NewButton("Old Dex 2.0.0", "", function()
     local chatbot1 = true
 	if chatbot1 then
-	loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/PABLOSleuth2/Internet-connection-pocketcode/main/Dex?token=GHSAT0AAAAAACDEIS5DTL5HKW2IMD26ZSTCZFGW6AQ"))()
+	loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/Dex"))()
 	end
 end)
 
