@@ -67,7 +67,7 @@ Tab1Section:NewButton("View RakOOF", "Views Wheres RakOOF", function()
 
 	  local camera = workspace.CurrentCamera
 
-	  camera.CameraSubject = npc.Head
+	  camera.CameraSubject = workspace.RakoofNPC.Head
 
 	end
 
@@ -100,7 +100,7 @@ end)
 
 
 Tab1Section:NewButton("ESP RakOOF", "Views Wheres ESP RakOOF", function()
-  local npc = game:GetService("Workspace").RakoofNPC:Descendants()
+  local npc = game:GetService("Workspace").RakoofNPC
   local s = Instance.new("SurfaceGui")
 
   s.Parent = npc.Torso
@@ -572,7 +572,7 @@ local Players = game:GetService("Players")
 local plr = Players.LocalPlayer
 
 local char = plr.Character
-	  local rak = npc.HumanoidRootPart.Position
+	  local rak = workspace.RakoofNPC.HumanoidRootPart.Position
 	  char.HumanoidRootPart.CFrame = CFrame.new(rak.X, rak.Y, rak.Z)
 	  wait(0.01)
 	  char.HumanoidRootPart.CFrame = CFrame.new(RootPos)
