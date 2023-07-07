@@ -9963,7 +9963,7 @@ end)
 
 addcmd('dexmobile', {'dexmob'}, function(args, speaker)
     notify('Loading', 'Hold on a sec')
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Internet-connection-pocketcode/main/Dex'))()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/Dex'))()
 end)
 
 addcmd('remotespy',{'rspy'},function(args, speaker)
