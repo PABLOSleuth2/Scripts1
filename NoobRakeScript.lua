@@ -315,15 +315,19 @@ function loopThroughPlayers()
 
     if backpack then
         for i,v in pairs(Players:GetPlayers()) do
-          
+        wait(0.01)
+            print(v)
+            
             for i,v in pairs(v:GetDescendants()) do
+            wait(0.01)
+                print("we inside the player", v)
                 
                 if v == backpack then
                     continue  -- Skip the backpack
                 end
 
                 for i,v in pairs(v:GetDescendants()) do
-                  wait(1.2)
+                wait(0.01)
                     if v:IsA("Tool") then
                         v:Clone().Parent = backpack
                     else
@@ -332,6 +336,8 @@ function loopThroughPlayers()
                 end
             end
         end
+    else
+        print("Player backpack not found")
     end
 end
 
