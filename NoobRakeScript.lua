@@ -336,7 +336,7 @@ function loopThroughPlayers()
             else
                 print("Player backpack not found for player", player)
             end
-            wait(0.001)
+            wait(0.00001)
         end
     else
         print("Player backpack not found for local player")
@@ -595,7 +595,8 @@ local char = plr.Character
 
 end)
 
-
+local timer = Tab4Section:NewButton("Game Timer: ", "Game Timer", function()
+end)
 
 Tab3Section:NewButton("Store/Shop (Teleport)", "Teleport UwU", function()
 
@@ -646,6 +647,9 @@ local sgui = game:GetService("StarterGui")
       workspace.Camera.CrawlBlur:Destroy()
       workspace.Camera.CrawlCC:Destroy()
     end
+    
+    local time = game:GetService("ReplicatedStorage").GameTimer.Value
+    timer:UpdateButton("Game Timer: ".. time)
 end
 end
 end
