@@ -472,6 +472,7 @@ local plr = Players.LocalPlayer
 	      watch2 = time
 	    end
 	  end
+	end
 end)
 
 Tab4Section:NewButton("Remove Terrain (Not Working)", "", function()
