@@ -314,27 +314,32 @@ function loopThroughPlayers()
     local backpack = lp and lp:FindFirstChild("Backpack")
 
     if backpack then
-        for i,v in pairs(Players:GetPlayers()) do
-            print(v)
+        for _, player in ipairs(Players:GetPlayers()) do
+            print(player)
             
-            for i,v in pairs(v:GetDescendants()) do
-                print("we inside the player", v)
+            local playerBackpack = player:FindFirstChild("Backpack")
+            
+            if playerBackpack then
+                local hasTools = false
                 
-                if v == backpack then
-                    continue  -- Skip the backpack
-                end
-
-                for i,v in pairs(v:GetDescendants()) do
-                    if v:IsA("Tool") then
-                        v:Clone().Parent = backpack
-                    else
-                        print("There's nothing on player")
+                for _, tool in ipairs(playerBackpack:GetChildren()) do
+                    if tool:IsA("Tool") then
+                        print("Found a tool in player", player, "backpack -", tool.Name)
+                        tool:Clone().Parent = backpack
+                        hasTools = true
                     end
                 end
+                
+                if not hasTools then
+                    print("No tools found in player", player, "backpack")
+                end
+            else
+                print("Player backpack not found for player", player)
             end
+            wait(0.001)
         end
     else
-        print("Player backpack not found")
+        print("Player backpack not found for local player")
     end
 end
 
