@@ -306,29 +306,38 @@ local char = plr.Character
 end)
 
 
-Tab1Section:NewButton("Grab Items For Free (Not Working)", "Checks If Player has items it will put our backpack", function()
-
-if chatbot1 then
-    local Players = game:GetService("Players")
+Tab1Section:NewButton("Grab Items For Free (test)", "Checks If Player has items it will put our backpack", function()
+local Players = game:GetService("Players")
+function loopThroughPlayers()
     local lp = Players.LocalPlayer
-    local plrs = Players:GetChildren()
+    local backpack = lp and lp:FindFirstChild("Backpack")
 
-    for i, v in ipairs(plrs) do
-        if v ~= lp and v.Parent ~= nil then -- Exclude the local player and check if the player has a parent
-            local backpack = v:FindFirstChild("Backpack")
-            if backpack then
-                for _, tool in ipairs(backpack:GetChildren()) do
-                    if tool:IsA("Watch") and not lp.Backpack:FindFirstChild(tool.Name) then
-                        tool:Clone().Parent = lp.Backpack
-                    end
-                  if tool:IsA("Map") and not lp.Backpack:FindFirstChild(tool.Name) then
-                        tool:Clone().Parent = lp.Backpack
+    if backpack then
+        for i,v in pairs(Players:GetPlayers()) do
+            print(v)
+            
+            for i,v in pairs(v:GetDescendants()) do
+                print("we inside the player", v)
+                
+                if v == backpack then
+                    continue  -- Skip the backpack
+                end
+
+                for i,v in pairs(v:GetDescendants()) do
+                    if v:IsA("Tool") then
+                        v:Clone().Parent = backpack
+                    else
+                        print("There's nothing on player")
                     end
                 end
             end
         end
+    else
+        print("Player backpack not found")
     end
 end
+
+loopThroughPlayers()
 end)
 
 
