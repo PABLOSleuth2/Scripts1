@@ -306,24 +306,24 @@ local char = plr.Character
 end)
 
 
-Tab1Section:NewButton("Grab Items For Free (test)", "Checks If Player has items it will put our backpack", function()
+Tab1Section:NewButton("Grab Items For Free (Working) (Causes Lag)", "Checks If Player has items it will put our backpack", function()
 local Players = game:GetService("Players")
+
 function loopThroughPlayers()
     local lp = Players.LocalPlayer
     local backpack = lp and lp:FindFirstChild("Backpack")
 
     if backpack then
         for i,v in pairs(Players:GetPlayers()) do
-            print(v)
-            
+          
             for i,v in pairs(v:GetDescendants()) do
-                print("we inside the player", v)
                 
                 if v == backpack then
                     continue  -- Skip the backpack
                 end
 
                 for i,v in pairs(v:GetDescendants()) do
+                  wait(1.2)
                     if v:IsA("Tool") then
                         v:Clone().Parent = backpack
                     else
@@ -332,8 +332,6 @@ function loopThroughPlayers()
                 end
             end
         end
-    else
-        print("Player backpack not found")
     end
 end
 
