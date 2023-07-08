@@ -595,8 +595,7 @@ local char = plr.Character
 
 end)
 
-local timer = Tab4Section:NewButton("Game Timer: ", "Game Timer", function()
-end)
+
 
 Tab3Section:NewButton("Store/Shop (Teleport)", "Teleport UwU", function()
 
@@ -647,7 +646,8 @@ local sgui = game:GetService("StarterGui")
       workspace.Camera.CrawlBlur:Destroy()
       workspace.Camera.CrawlCC:Destroy()
     end
-    
+    local timer = Tab4Section:NewButton("Game Timer: ", "Game Timer", function()
+    end)
     local time = game:GetService("ReplicatedStorage").GameTimer.Value
     timer:UpdateButton("Game Timer: ".. time)
 end
