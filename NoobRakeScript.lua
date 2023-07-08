@@ -448,6 +448,31 @@ local char = plr.Character
 	end
 
 end)
+  
+  Tab4Section:NewButton("Fix Watch Tool", "", function()
+
+    local chatbot1 = true
+
+	if chatbot1 then
+
+	local re = game:GetService("ReplicatedStorage")  
+local workspace = game:GetService("Workspace")
+	  local cam = game:GetService("Workspace").Camera:GetDescendants()
+local Players = game:GetService("Players")
+
+local plr = Players.LocalPlayer
+	  local char = plr.Character
+	  if plr.Backpack.Watch then
+	    local watch = plr.Backpack.Watch.Screen.SurfaceGui.TimerTextLabel.Text
+	    local watch2 = char.Watch.Screen.SurfaceGui.TimerTextLabel.Text
+	    while true do
+	      wait(0.0001)
+	      local time = re.GameTimer.Value
+	      watch = time
+	      watch2 = time
+	    end
+	  end
+end)
 
 Tab4Section:NewButton("Remove Terrain (Not Working)", "", function()
 
