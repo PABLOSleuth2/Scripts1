@@ -448,32 +448,6 @@ local char = plr.Character
 	end
 
 end)
-  
-  Tab4Section:NewButton("Fix Watch Tool", "", function()
-
-    local chatbot1 = true
-
-	if chatbot1 then
-
-	local re = game:GetService("ReplicatedStorage")  
-local workspace = game:GetService("Workspace")
-	  local cam = game:GetService("Workspace").Camera:GetDescendants()
-local Players = game:GetService("Players")
-
-local plr = Players.LocalPlayer
-	  local char = plr.Character
-	  if plr.Backpack.Watch then
-	    local watch = plr.Backpack.Watch.Screen.SurfaceGui.TimerTextLabel.Text
-	    local watch2 = char.Watch.Screen.SurfaceGui.TimerTextLabel.Text
-	    while true do
-	      wait(0.0001)
-	      local time = re.GameTimer.Value
-	      watch = time
-	      watch2 = time
-	    end
-	  end
-	end
-end)
 
 Tab4Section:NewButton("Remove Terrain (Not Working)", "", function()
 
@@ -597,6 +571,32 @@ local char = plr.Character
 	end
 
 end)
+  
+  Tab4Section:NewButton("Fix Watch Tool", "", function()
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local plr = Players.LocalPlayer
+local char = plr.Character
+
+local re = ReplicatedStorage -- Modify this to match your ReplicatedStorage path
+local timerLabel = char.Watch.Screen.SurfaceGui.TimerTextLabel
+
+-- Event handler to update the timer when a tool is added or removed
+char.DescendantAdded:Connect(function(descendant)
+    if descendant:IsA("Tool") then
+        local time = re.GameTimer.Value
+        timerLabel.Text = time
+    end
+end)
+
+char.DescendantRemoving:Connect(function(descendant)
+    if descendant:IsA("Tool") then
+        local time = re.GameTimer.Value
+        timerLabel.Text = time
+    end
+end)
+end)
 
 
 Tab3Section:NewButton("RakOOF (Teleport)", "Teleport UwU", function()
@@ -672,10 +672,6 @@ local sgui = game:GetService("StarterGui")
       workspace.Camera.CrawlBlur:Destroy()
       workspace.Camera.CrawlCC:Destroy()
     end
-    local timer = Tab4Section:NewButton("Game Timer: ", "Game Timer", function()
-    end)
-    local time = game:GetService("ReplicatedStorage").GameTimer.Value
-    timer:UpdateButton("Game Timer: ".. time)
 end
 end
 end
