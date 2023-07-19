@@ -1906,12 +1906,19 @@ local function getSelection()
 	end
 end
 
-Mouse.Button1Down:connect(function()
-	if CurrentWindow == "Explorer" and Settings.ClickSelect then
-		local target = Mouse.Target
+local UserInputService = game:GetService("UserInputService")
+local TouchTap = UserInputService.TouchTap
+
+TouchTap:Connect(function(touchPositions, processed)
+	if CurrentWindow == "Explorer" and Settings.ClickSelect and not processed then
+		local target = game:GetService("Workspace"):FindPartOnRayWithIgnoreList(
+			Ray.new(Camera.CFrame.Position, (touchPositions[1].Position - Camera.CFrame.Position).Unit),
+			{Camera} -- Add any objects you don't want to select through
+		)
 		if target then
 			SetSelection:Invoke({target})
 		end
+		processed = true
 	end
 end)
 
