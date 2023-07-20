@@ -8,6 +8,7 @@ tp.Position = Vector3.new(102.87, 366, -73.1)
 tp.Size = Vector3.new(2048, 574, 2048)
 tp.Transparency = 1
 tp.Parent = game.Workspace
+tp.Anchored = true
 -- Create Frame
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0, 200, 0, 100)
