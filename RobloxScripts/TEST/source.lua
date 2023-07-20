@@ -4276,6 +4276,7 @@ CMDs[#CMDs + 1] = {NAME = 'copycreatorid / copycreator', DESC = 'Copies the crea
 CMDs[#CMDs + 1] = {NAME = 'setcreatorid / setcreator', DESC = 'Sets your userid to the creators ID'}
 CMDs[#CMDs + 1] = {NAME = 'noprompts', DESC = 'Prevents the game from showing you purchase/premium prompts'}
 CMDs[#CMDs + 1] = {NAME = 'showprompts', DESC = 'Allows the game to show purchase/premium prompts again'}
+CMDs[#CMDs + 1] = {NAME = 'flingv2        [R15]', DESC = 'FLINGV2'}
 CMDs[#CMDs + 1] = {NAME = 'enable [inventory/playerlist/chat/reset/emotes/all]', DESC = 'Toggles visibility of coregui items'}
 CMDs[#CMDs + 1] = {NAME = 'disable [inventory/playerlist/chat/reset/emotes/all]', DESC = 'Toggles visibility of coregui items'}
 CMDs[#CMDs + 1] = {NAME = 'showguis', DESC = 'Shows any invisible GUIs'}
@@ -9970,6 +9971,12 @@ end)
 addcmd('dexmobile', {'dexmob'}, function(args, speaker)
     notify('Loading', 'Hold on a sec')
     loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/Dex'))()
+end)
+
+addcmd('flingv2', {'flingvv2'}, function(args, speaker)
+    notify('Loading', 'Hold on a sec')
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe./main/Fling%20GUI"))()
+    notify('Success', 'Script Worked Go to player and it automatically fling')
 end)
 
 addcmd('chattranslator',{'chattrans'},function(args, speaker)
