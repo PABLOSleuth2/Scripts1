@@ -14,7 +14,7 @@ if not game:IsLoaded() then
 	notLoaded:Destroy()
 end
 
-currentVersion = '5.9.3'
+currentVersion = '1.0'
 
 Players = game:GetService("Players")
 local Players = game:GetService("Players")
@@ -4252,6 +4252,7 @@ end
 CMDs = {}
 CMDs[#CMDs + 1] = {NAME = 'discord / support / help', DESC = 'Invite to the Infinite Yield support server.'}
 CMDs[#CMDs + 1] = {NAME = 'antifling / af', DESC = 'antifling'}
+CMDs[#CMDs + 1] = {NAME = 'bypasschat / bpc', DESC = 'bypass chat bruh'}
 CMDs[#CMDs + 1] = {NAME = 'chattranslator / chattrans', DESC = 'Google Translator, type >sp,ko,ru,po and more. to pick languages'}
 CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads old Roblox console'}
 CMDs[#CMDs + 1] = {NAME = 'dexmobile / dexmob', DESC = 'Opens DEX For Mobiles!'}
@@ -9976,6 +9977,15 @@ end)
 addcmd('antifling',{'af'},function(args, speaker)
     notify('Loading', 'Hold on a sec')
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/antifling_47bb9184ad39be72ef4c96842c6770ee.txt_73135124ccdfd0a4bae83c857ec9cba3.txt'))()
+end)
+
+addcmd('bypasschat',{'bpc'},function(args, speaker)
+    notify('Loading', 'Hold on a sec')
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/synnyyy/synergy/additional/betterbypasser", true))({
+    Method = 1, -- Method 1 is the main method. Method two is emojis. Method 3 is full transparency, no special symbols. Method 3 has been improved!
+    Keybind = "F", -- Usually defaulted to F. You can change this keybind by replacing the string with a letter. Works for uppercase and lowercase.
+    ShowMethodDictionary = true -- Shows you the full list of words that you can say with the method. Press FN + F9 to see this dictionary.
+})
 end)
 
 addcmd('remotespy',{'rspy'},function(args, speaker)
