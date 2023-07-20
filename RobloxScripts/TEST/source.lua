@@ -209,7 +209,7 @@ Title.BorderSizePixel = 0
 Title.Size = UDim2.new(0, 250, 0, 20)
 Title.Font = Enum.Font.SourceSans
 Title.TextSize = 18
-Title.Text = "Infinite Yield FE v" .. currentVersion
+Title.Text = "Infinite Yield FE [ Pro ] v".. currentVersion  
 
 do
 	local emoji = ({
@@ -4256,6 +4256,8 @@ CMDs[#CMDs + 1] = {NAME = 'bypasschat / bpc', DESC = 'bypass chat bruh'}
 CMDs[#CMDs + 1] = {NAME = 'chattranslator / chattrans', DESC = 'Google Translator, type >sp,ko,ru,po and more. to pick languages'}
 CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads old Roblox console'}
 CMDs[#CMDs + 1] = {NAME = 'dexmobile / dexmob', DESC = 'Opens DEX For Mobiles!'}
+CMDs[#CMDs + 1] = {NAME = 'mobilekeyboard / mbk', DESC = 'Opens PC Keyboard For Mobiles!'}
+CMDs[#CMDs + 1] = {NAME = 'punchfling / punch', DESC = 'Punch Fling'}
 CMDs[#CMDs + 1] = {NAME = 'remotespy / rspy', DESC = 'Opens Simple Spy V3'}
 CMDs[#CMDs + 1] = {NAME = 'audiologger / alogger', DESC = 'Opens Edges audio logger'}
 CMDs[#CMDs + 1] = {NAME = 'serverinfo / info', DESC = 'Gives you info about the server'}
@@ -4340,6 +4342,7 @@ CMDs[#CMDs + 1] = {NAME = 'vehiclegoto / vgoto [plr]', DESC = 'Go to a player wh
 CMDs[#CMDs + 1] = {NAME = 'loopgoto [plr] [distance] [delay]', DESC = 'Loop teleport to a player'}
 CMDs[#CMDs + 1] = {NAME = 'unloopgoto', DESC = 'Stops teleporting you to a player'}
 CMDs[#CMDs + 1] = {NAME = 'pulsetp / ptp [plr] [seconds]', DESC = 'Teleports you to a player for a specified ammount of time'}
+CMDs[#CMDs + 1] = {NAME = 'crashserver / cs', DESC = 'crash server'}
 CMDs[#CMDs + 1] = {NAME = 'clientbring / cbring [plr] (CLIENT)', DESC = 'Bring a player'}
 CMDs[#CMDs + 1] = {NAME = 'loopbring [plr] [distance] [delay] (CLIENT)', DESC = 'Loop brings a player to you (useful for killing)'}
 CMDs[#CMDs + 1] = {NAME = 'unloopbring [plr]', DESC = 'Undoes loopbring'}
@@ -9979,6 +9982,16 @@ addcmd('antifling',{'af'},function(args, speaker)
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/antifling_47bb9184ad39be72ef4c96842c6770ee.txt_73135124ccdfd0a4bae83c857ec9cba3.txt'))()
 end)
 
+addcmd('mobilekeyboard',{'mbk'},function(args, speaker)
+    notify('Loading', 'Hold on a sec')
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/BatuKvi123/Keyboardv3/main/mobKeyboard"))()
+end)
+
+addcmd('punchfling',{'punch'},function(args, speaker)
+    notify('Loading', 'Hold on a sec')
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/punch.lua"))()
+end)
+
 addcmd('bypasschat',{'bpc'},function(args, speaker)
     notify('Loading', 'Hold on a sec')
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/synnyyy/synergy/additional/betterbypasser", true))({
@@ -10842,6 +10855,62 @@ addcmd('dupetools', {'clonetools'}, function(args, speaker)
 		end
 		TempPos = TempPos + Vector3.new(10, math.random(-5, 5), 0)
 	end
+end)
+
+addcmd('crashserver', {'cs'}, function(args, speaker)
+	local LOOP_NUM = tonumber(args[1]) or 1
+	local OrigPos = speaker.Character.HumanoidRootPart.Position
+	local Tools, TempPos = {}, Vector3.new(math.random(-2e5, 2e5), 2e5, math.random(-2e5, 2e5))
+	for i = 1, LOOP_NUM do
+		local Human = speaker.Character:WaitForChild("Humanoid")
+		wait(.1, Human.Parent:MoveTo(TempPos))
+		Human.RootPart.Anchored = speaker:ClearCharacterAppearance(wait(.1)) or true
+		local t = GetHandleTools(speaker)
+		while #t > 0 do
+			for _, v in ipairs(t) do
+				task.spawn(function()
+					for _ = 1, 25 do
+						v.Parent = speaker.Character
+						v.Handle.Anchored = true
+					end
+					for _ = 1, 5 do
+						v.Parent = workspace
+					end
+					table.insert(Tools, v.Handle)
+				end)
+			end
+			t = GetHandleTools(speaker)
+		end
+		wait(.1)
+		speaker.Character = speaker.Character:Destroy()
+		speaker.CharacterAdded:Wait():WaitForChild("Humanoid").Parent:MoveTo(LOOP_NUM == i and OrigPos or TempPos, wait(.1))
+		if i == LOOP_NUM or i % 5 == 0 then
+			local HRP = speaker.Character.HumanoidRootPart
+			if type(firetouchinterest) == "function" then
+				for _, v in ipairs(Tools) do
+					v.Anchored = not firetouchinterest(v, HRP, 1, firetouchinterest(v, HRP, 0)) and false or false
+				end
+			else
+				for _, v in ipairs(Tools) do
+					task.spawn(function()
+						local x = v.CanCollide
+						v.CanCollide = false
+						v.Anchored = false
+						for _ = 1, 10 do
+							v.CFrame = HRP.CFrame
+							wait()
+						end
+						v.CanCollide = x
+					end)
+				end
+			end
+			wait(.1)
+			Tools = {}
+		end
+		TempPos = TempPos + Vector3.new(10, math.random(-5, 5), 0)
+	end
+	wait(2)
+	execCmd('equiptools')
 end)
 
 local RS = RunService.RenderStepped
