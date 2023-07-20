@@ -4251,6 +4251,7 @@ end
 
 CMDs = {}
 CMDs[#CMDs + 1] = {NAME = 'discord / support / help', DESC = 'Invite to the Infinite Yield support server.'}
+CMDs[#CMDs + 1] = {NAME = 'antifling / af', DESC = 'antifling'}
 CMDs[#CMDs + 1] = {NAME = 'chattranslator / chattrans', DESC = 'Google Translator, type >sp,ko,ru,po and more. to pick languages'}
 CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads old Roblox console'}
 CMDs[#CMDs + 1] = {NAME = 'dexmobile / dexmob', DESC = 'Opens DEX For Mobiles!'}
@@ -9970,6 +9971,11 @@ end)
 addcmd('chattranslator',{'chattrans'},function(args, speaker)
     notify('Loading', 'Hold on a sec')
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/internet-connection-pocketcode/main/translator.txt'))()
+end)
+
+addcmd('antifling',{'af'},function(args, speaker)
+    notify('Loading', 'Hold on a sec')
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/antifling_47bb9184ad39be72ef4c96842c6770ee.txt_73135124ccdfd0a4bae83c857ec9cba3.txt'))()
 end)
 
 addcmd('remotespy',{'rspy'},function(args, speaker)
