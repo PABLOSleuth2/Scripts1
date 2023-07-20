@@ -9973,10 +9973,15 @@ addcmd('dexmobile', {'dexmob'}, function(args, speaker)
     loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/Dex'))()
 end)
 
+addcmd('teleporter', {'tpr'}, function(args, speaker)
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/teleport%20player%205%20seconds.lua'))()
+end)
+
 addcmd('flingv2', {'flingvv2'}, function(args, speaker)
     notify('Loading', 'Hold on a sec')
     loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe./main/Fling%20GUI"))()
     notify('Success', 'Script Worked Go to player and it automatically fling')
+    exec('teleporter')
 end)
 
 addcmd('chattranslator',{'chattrans'},function(args, speaker)
