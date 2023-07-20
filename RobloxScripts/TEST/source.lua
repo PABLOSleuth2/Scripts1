@@ -4290,6 +4290,11 @@ CMDs[#CMDs + 1] = {NAME = 'showiy / unhideiy', DESC = 'Shows IY again'}
 CMDs[#CMDs + 1] = {NAME = 'keepiy', DESC = 'Auto execute IY when you teleport through servers'}
 CMDs[#CMDs + 1] = {NAME = 'unkeepiy', DESC = 'Disable keepiy'}
 CMDs[#CMDs + 1] = {NAME = 'togglekeepiy', DESC = 'Toggle keepiy'}
+CMDs[#CMDs + 1] = {NAME = '', DESC = ''}
+CMDs[#CMDs + 1] = {NAME = 'WW2 Nations Roleplay', DESC = ''}
+CMDs[#CMDs + 1] = {NAME = 'nation', DESC = ''}
+CMDs[#CMDs + 1] = {NAME = 'commands', DESC = ''}
+CMDs[#CMDs + 1] = {NAME = '', DESC = ''}
 CMDs[#CMDs + 1] = {NAME = 'savegame / saveplace', DESC = 'Uses saveinstance to save the game'}
 CMDs[#CMDs + 1] = {NAME = 'clearerror', DESC = 'Clears the annoying box and blur when a game kicks you'}
 CMDs[#CMDs + 1] = {NAME = 'clientantikick / antikick (CLIENT)', DESC = 'Prevents localscripts from kicking you'}
@@ -9542,17 +9547,49 @@ addcmd('unloopnobgui',{'unloopunbgui','unloopnobillboardgui','unloopunbillboardg
 	end
 end)
 
-addcmd('spasm',{},function(args, speaker)
-	if not r15(speaker) then
-		local pchar=speaker.Character
-		local AnimationId = "33796059"
-		SpasmAnim = Instance.new("Animation")
-		SpasmAnim.AnimationId = "rbxassetid://"..AnimationId
-		Spasm = pchar:FindFirstChildOfClass('Humanoid'):LoadAnimation(SpasmAnim)
-		Spasm:Play()
-		Spasm:AdjustSpeed(99)
+addcmd('nation',{},function(args, speaker)
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/map%20game%20commands%20WW2.lua'))()
+end)
+
+
+
+addcmd('commands',{},function(args, speaker)
+	if not r6(speaker) then
+		print({"
+			invert/ - inverts map color
+rainbow/ - makes the map rainbow
+setcolor/color - sets the entire map to the one color
+random/ - randomizes the map colors making it a mess
+replace/color/newcolor - replaces the the map (doesn't work with a lot of colors sadly)
+name/target/name - sets the target's rp name
+noname/ - remove your rp name
+admin/username - giver a user admin
+unadmin/username - remove a users admin
+admins/ - get a list of admins
+ccolor/color - sets color for provinces you select
+pcolor/color - sets all provinces to that color
+select/color? (optional) - 
+selects all provinces of the color if specified
+if not specified
+it lets you select provinces
+middle button to toggle select/unselect provinces
+
+unselect/color? || all? - stop selecting
+cselect/ - clear selection
+ssetcolor - set selected color
+country/ - protects all your land for you automatically
+uncountry/ - stops protecting
+
+SAVE COMMANDS:
+these commands only save after leaving if your exploit has a filesystem api
+however if you arent using a good exploit then it will saved until you leave or rejoin
+
+save/name - saves the map
+load/name - loads a save
+del/name - deletes a save
+"})
 	else
-		notify('R6 Required','This command requires the r6 rig type')
+		notify('R15 Required','This command requires the r15 rig type')
 	end
 end)
 
