@@ -85,6 +85,31 @@ local function teleportPlayer()
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = currentPosition
                     wait(0.3)
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = currentPosition
+                  game.Players.LocalPlayer.Backpack.PaintBucket.Handle.Anchored = false
+  -- Teleport the player to the desired position
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = currentPosition
+
+  -- Disable character movement during the fling
+  game.Players.LocalPlayer.Character.Humanoid.PlatformStand = true
+
+  -- Wait for a short period to stabilize the character's position
+  wait(0.4)
+for i,v in pairs(game.Players.LocalPlayer:FindFirstChildOfClass("Backpack"):GetChildren()) do
+		if v:IsA("Tool") or v:IsA("HopperBin") then
+			v.Parent = game.Players.LocalPlayer.Character
+		end
+	end
+  
+  if game.Players.LocalPlayer.Character.PaintBucket.Handle.Anchored == false then
+    game.Players.LocalPlayer.Character.PaintBucket.Handle.Anchored = true
+  end
+  -- Re-enable character movement
+  game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+
+  -- Reset character position to the initial position
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = currentPosition
+  wait(3)
+  game.Players.LocalPlayer.Character.PaintBucket.Handle.Anchored = false
                 end
             end)
             
@@ -106,7 +131,7 @@ local function savePosition()
 end
 
 local function gotopos()
-
+  game.Players.LocalPlayer.Backpack.PaintBucket.Handle.Anchored = false
   -- Teleport the player to the desired position
   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = currentPosition
 
