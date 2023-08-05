@@ -422,11 +422,11 @@ function animateTool()
 end
 
 function moveSit()
-	dummyhtShoulder.MaxVelocity = 0.15
+	RightShoulder.MaxVelocity = 0.15
 	LeftShoulder.MaxVelocity = 0.15
-	dummyhtShoulder:SetDesiredAngle(3.14 /2)
+	RightShoulder:SetDesiredAngle(3.14 /2)
 	LeftShoulder:SetDesiredAngle(-3.14 /2)
-	dummyhtHip:SetDesiredAngle(3.14 /2)
+	RightHip:SetDesiredAngle(3.14 /2)
 	LeftHip:SetDesiredAngle(-3.14 /2)
 end
 
@@ -463,9 +463,9 @@ function move(time)
 	if (setAngles) then
 		local desiredAngle = amplitude * math.sin(time * frequency)
 
-		dummyhtShoulder:SetDesiredAngle(desiredAngle + climbFudge)
+		RightShoulder:SetDesiredAngle(desiredAngle + climbFudge)
 		LeftShoulder:SetDesiredAngle(desiredAngle - climbFudge)
-		dummyhtHip:SetDesiredAngle(-desiredAngle)
+		RightHip:SetDesiredAngle(-desiredAngle)
 		LeftHip:SetDesiredAngle(-desiredAngle)
 	end
 
