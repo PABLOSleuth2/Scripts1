@@ -2,9 +2,9 @@ dummy = game:GetService("Players").LocalPlayer.Character.Dummy
 
 local Figure = dummy.Animate.Parent
 local Torso = Figure:WaitForChild("Torso")
-local dummyhtShoulder = Torso:WaitForChild("dummyht Shoulder")
+local RightShoulder = Torso:WaitForChild("Right Shoulder")
 local LeftShoulder = Torso:WaitForChild("Left Shoulder")
-local dummyhtHip = Torso:WaitForChild("dummyht Hip")
+local RightHip = Torso:WaitForChild("Right Hip")
 local LeftHip = Torso:WaitForChild("Left Hip")
 local Neck = Torso:WaitForChild("Neck")
 local Humanoid = Figure:WaitForChild("Humanoid")
