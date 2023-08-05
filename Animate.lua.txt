@@ -1,6 +1,6 @@
 dummy = game:GetService("Players").LocalPlayer.Character.Dummy
 
-local Figure = char.Animate.Parent
+local Figure = dummy.Animate.Parent
 local Torso = Figure:WaitForChild("Torso")
 local RightShoulder = Torso:WaitForChild("Right Shoulder")
 local LeftShoulder = Torso:WaitForChild("Left Shoulder")
