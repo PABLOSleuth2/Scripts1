@@ -179,7 +179,7 @@ elseif COREGUI:FindFirstChild('RobloxGui') then
 	PARENT = COREGUI.RobloxGui
 else
 	local Main = Instance.new("ScreenGui")
-	Main.Name = randomString()
+	Main.Name = "Infinite Yield"
 	Main.Parent = COREGUI
 	PARENT = Main
 end
@@ -4252,6 +4252,7 @@ end
 CMDs = {}
 CMDs[#CMDs + 1] = {NAME = 'discord / support / help', DESC = 'Invite to the Infinite Yield support server.'}
 CMDs[#CMDs + 1] = {NAME = 'antifling / af', DESC = 'antifling'}
+CMDs[#CMDs + 1] = {NAME = 'aimbot / aimbotv1', DESC = 'aimbot'}
 CMDs[#CMDs + 1] = {NAME = 'bypasschat / bpc', DESC = 'bypass chat bruh'}
 CMDs[#CMDs + 1] = {NAME = 'chattranslator / chattrans', DESC = 'Google Translator, type >sp,ko,ru,po and more. to pick languages'}
 CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads old Roblox console'}
@@ -4277,6 +4278,7 @@ CMDs[#CMDs + 1] = {NAME = 'setcreatorid / setcreator', DESC = 'Sets your userid 
 CMDs[#CMDs + 1] = {NAME = 'noprompts', DESC = 'Prevents the game from showing you purchase/premium prompts'}
 CMDs[#CMDs + 1] = {NAME = 'showprompts', DESC = 'Allows the game to show purchase/premium prompts again'}
 CMDs[#CMDs + 1] = {NAME = 'flingv2        [R15]', DESC = 'FLINGV2'}
+CMDs[#CMDs + 1] = {NAME = 'rizz', DESC = 'if you type rizz it will automatically say w rizz'}
 CMDs[#CMDs + 1] = {NAME = 'enable [inventory/playerlist/chat/reset/emotes/all]', DESC = 'Toggles visibility of coregui items'}
 CMDs[#CMDs + 1] = {NAME = 'disable [inventory/playerlist/chat/reset/emotes/all]', DESC = 'Toggles visibility of coregui items'}
 CMDs[#CMDs + 1] = {NAME = 'showguis', DESC = 'Shows any invisible GUIs'}
@@ -9972,8 +9974,16 @@ end)
 addcmd('dexmobile', {'dexmob'}, function(args, speaker)
     notify('Loading', 'Hold on a sec')
     loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/Dex'))()
+    wait(1)
+    game.Players.LocalPlayer.PlayerGui.Dex.ResetOnSpawn = false
 end)
 
+addcmd('aimbot', {'aimbotv1'}, function(args, speaker)
+
+    notify('Loading', 'Hold on a sec')
+
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/aimbot.lua'))()
+end)
 addcmd('teleporter', {'tpr'}, function(args, speaker)
     loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/teleport%20player%205%20seconds.lua'))()
 end)
@@ -9983,6 +9993,12 @@ addcmd('flingv2', {'flingvv2'}, function(args, speaker)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe./main/Fling%20GUI"))()
     notify('Success', 'Script Worked Go to player and it automatically fling')
     exec('teleporter')
+end)
+
+addcmd('rizz', {'rizzz'}, function(args, speaker)
+    notify('Loading', 'Hold on a sec')
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/rizz.lua"))()
+    notify('Success', 'Script Worked it automatically say rizz')
 end)
 
 addcmd('chattranslator',{'chattrans'},function(args, speaker)
@@ -10002,23 +10018,31 @@ end)
 
 addcmd('punchfling',{'punch'},function(args, speaker)
     notify('Loading', 'Hold on a sec')
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/punch.lua"))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/fedoratums/Base-Script/Base-Script/fedoratum punch fling"))()
 end)
 
 addcmd('bypasschat',{'bpc'},function(args, speaker)
     notify('Loading', 'Hold on a sec')
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/synnyyy/synergy/additional/betterbypasser", true))({
-    Method = 1, -- Method 1 is the main method. Method two is emojis. Method 3 is full transparency, no special symbols. Method 3 has been improved!
+    Method = 3, -- Method 1 is the main method. Method two is emojis. Method 3 is full transparency, no special symbols. Method 3 has been improved!
     Keybind = "F", -- Usually defaulted to F. You can change this keybind by replacing the string with a letter. Works for uppercase and lowercase.
     ShowMethodDictionary = true -- Shows you the full list of words that you can say with the method. Press FN + F9 to see this dictionary.
 })
+
+
+-- https://discord.gg/RXUwZHjNKm
+-- This page will be always updated no matter what.
+-- BetterBypasser does not log anything.
+
+-- If you want the new update or the new invis method, please change "Method" to 3
+-- Want to see the words for Method 1? Please view the console to do so. We are planning to change this to a UI where it shows you the words instead
 end)
 
 addcmd('remotespy',{'rspy'},function(args, speaker)
 	notify("Loading",'Hold on a sec')
 	-- Full credit to exx, creator of SimpleSpy
 	-- also thanks to NoobSploit for fixing
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua"))()
+	loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpyBeta.lua"))()
 end)
 
 addcmd('audiologger',{'alogger'},function(args, speaker)
@@ -10091,6 +10115,31 @@ addcmd('frheadsit',{},function(args, speaker)
    end
 end)
 
+addcmd('bang2',{},function(args, speaker)
+	local players = getPlayer(args[1], speaker)
+	if headSit then headSit:Disconnect() end
+	for i,v in pairs(players)do
+		speaker.Character:FindFirstChildOfClass('Humanoid').Sit = true
+		headSit = RunService.Heartbeat:Connect(function()
+			if Players:FindFirstChild(Players[v].Name) and Players[v].Character ~= nil and getRoot(Players[v].Character) and getRoot(speaker.Character) and speaker.Character:FindFirstChildOfClass('Humanoid').Sit == true then
+			    bangAnim = Instance.new("Animation")
+			    bangAnim.AnimationId = "rbxassetid://148840371"
+			    bang = speaker.Character:FindFirstChildOfClass('Humanoid'):LoadAnimation(bangAnim)
+		        bang:Play(.1, 1, 1)
+		        bang:AdjustSpeed(5)
+				getRoot(speaker.Character).CFrame = getRoot(Players[v].Character).CFrame * CFrame.Angles(0,math.rad(180),0)* CFrame.new(0,2.2,1.5)
+			else
+				headSit:Disconnect()
+			end
+	 end)
+   end
+end)
+
+addcmd('unbang2',{},function(args, speaker)
+    bang:Stop()
+	bangAnim:Destroy()
+	speaker.Character.Humanoid.Sit = false
+end)
 addcmd('frheadsit2',{},function(args, speaker)
 	local players = getPlayer(args[1], speaker)
 	if headSit then headSit:Disconnect() end
@@ -12302,7 +12351,7 @@ task.spawn(function()
 	
 	if success then
 		if currentVersion ~= latestVersionInfo.Version then
-			notify('Outdated','Get the new version at infyiff.github.io')
+			notify('Thanks for using our pro version','we try updating faster')
 		end
 		
 		if latestVersionInfo.Announcement and latestVersionInfo.Announcement ~= '' then
