@@ -4428,6 +4428,7 @@ CMDs[#CMDs + 1] = {NAME = 'f3x (CLIENT)', DESC = 'Gives you F3X building tools (
 CMDs[#CMDs + 1] = {NAME = 'partname / partpath', DESC = 'Allows you to click a part to see its path & name'}
 CMDs[#CMDs + 1] = {NAME = 'delete [instance name] (CLIENT)', DESC = 'Removes any part with a certain name from the workspace (DOES NOT REPLICATE)'}
 CMDs[#CMDs + 1] = {NAME = 'deleteclass / dc [class name] (CLIENT)', DESC = 'Removes any part with a certain classname from the workspace (DOES NOT REPLICATE)'}
+CMDs[#CMDs + 1] = {NAME = 'r6', DESC = 'makes r15 to r6'}
 CMDs[#CMDs + 1] = {NAME = 'lockworkspace / lockws', DESC = 'Locks the whole workspace'}
 CMDs[#CMDs + 1] = {NAME = 'unlockworkspace / unlockws', DESC = 'Unlocks the whole workspace'}
 CMDs[#CMDs + 1] = {NAME = 'invisibleparts / invisparts (CLIENT)', DESC = 'Shows invisible parts'}
@@ -4456,7 +4457,7 @@ CMDs[#CMDs + 1] = {NAME = 'removeterrain / rterrain / noterrain', DESC = 'Remove
 CMDs[#CMDs + 1] = {NAME = 'clearnilinstances / nonilinstances / cni', DESC = 'Removes nil instances'}
 CMDs[#CMDs + 1] = {NAME = 'destroyheight / dh [num]', DESC = 'Sets FallenPartsDestroyHeight'}
 CMDs[#CMDs + 1] = {NAME = '', DESC = ''}
-CMDs[#CMDs + 1] = {NAME = 'fullbright / fb (CLIENT)', DESC = 'Makes the map brighter / more visible'}
+5Ds[#CMDs + 1] = {NAME = 'fullbright / fb (CLIENT)', DESC = 'Makes the map brighter / more visible'}
 CMDs[#CMDs + 1] = {NAME = 'loopfullbright / loopfb (CLIENT)', DESC = 'Makes the map brighter / more visible but looped'}
 CMDs[#CMDs + 1] = {NAME = 'unloopfullbright / unloopfb', DESC = 'Unloops fullbright'}
 CMDs[#CMDs + 1] = {NAME = 'ambient [num] [num] [num] (CLIENT)', DESC = 'Changes ambient'}
@@ -10038,6 +10039,13 @@ addcmd('bypasschat',{'bpc'},function(args, speaker)
 -- Want to see the words for Method 1? Please view the console to do so. We are planning to change this to a UI where it shows you the words instead
 end)
 
+addcmd('r6',{},function(args, speaker)
+
+    notify('Loading', 'Hold on a sec')
+
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/Imagnir/r6_anims_for_r15/main/r6_anims.lua'),true))()
+end)
+
 addcmd('remotespy',{'rspy'},function(args, speaker)
 	notify("Loading",'Hold on a sec')
 	-- Full credit to exx, creator of SimpleSpy
@@ -10163,6 +10171,13 @@ addcmd('chat',{'say'},function(args, speaker)
 	ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(cString, "All")
 end)
 
+addcmd('getobjects',{},function(args, speaker)
+
+	local object = args[1]
+	local object1 = game:GetObjects(object)[1]
+	object1.Parent = game.Workspace
+	
+end)
 
 spamming = false
 spamspeed = 1
