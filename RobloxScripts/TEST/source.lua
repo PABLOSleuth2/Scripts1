@@ -4457,7 +4457,7 @@ CMDs[#CMDs + 1] = {NAME = 'removeterrain / rterrain / noterrain', DESC = 'Remove
 CMDs[#CMDs + 1] = {NAME = 'clearnilinstances / nonilinstances / cni', DESC = 'Removes nil instances'}
 CMDs[#CMDs + 1] = {NAME = 'destroyheight / dh [num]', DESC = 'Sets FallenPartsDestroyHeight'}
 CMDs[#CMDs + 1] = {NAME = '', DESC = ''}
-5Ds[#CMDs + 1] = {NAME = 'fullbright / fb (CLIENT)', DESC = 'Makes the map brighter / more visible'}
+CMDs[#CMDs + 1] = {NAME = 'fullbright / fb (CLIENT)', DESC = 'Makes the map brighter / more visible'}
 CMDs[#CMDs + 1] = {NAME = 'loopfullbright / loopfb (CLIENT)', DESC = 'Makes the map brighter / more visible but looped'}
 CMDs[#CMDs + 1] = {NAME = 'unloopfullbright / unloopfb', DESC = 'Unloops fullbright'}
 CMDs[#CMDs + 1] = {NAME = 'ambient [num] [num] [num] (CLIENT)', DESC = 'Changes ambient'}
@@ -10039,11 +10039,9 @@ addcmd('bypasschat',{'bpc'},function(args, speaker)
 -- Want to see the words for Method 1? Please view the console to do so. We are planning to change this to a UI where it shows you the words instead
 end)
 
-addcmd('r6',{},function(args, speaker)
-
+addcmd('r6',{'r15tor6'},function(args, speaker)
     notify('Loading', 'Hold on a sec')
-
-	loadstring(game:HttpGet(('https://raw.githubusercontent.com/Imagnir/r6_anims_for_r15/main/r6_anims.lua'),true))()
+loadstring(game:HttpGet("'https://raw.githubusercontent.com/Imagnir/r6_anims_for_r15/main/r6_anims.lua'"))()
 end)
 
 addcmd('remotespy',{'rspy'},function(args, speaker)
