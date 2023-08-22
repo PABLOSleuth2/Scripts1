@@ -9558,7 +9558,11 @@ end)
 
 
 addcmd('commands',{},function(args, speaker)
-		print("invert/ , rainbow/ , setcolor/Bright red , admin/username , select/Bright red/ , country/ automatically protects , cselect/ , load/default , save/example.")
+		print("what/ - makes the map rainbow")
+        print("oh/color - sets color for provinces you select")
+        print("ok/color? (optional) - selects all provinces of the color if specified if not specified it lets you select provinces middle button to toggle select/unselect provinces")
+        print("hmm/ - clear selection")
+        print("wait/ - protects all your land for you automatically")
 end)
 
 addcmd('unspasm',{'nospasm'},function(args, speaker)

@@ -6,7 +6,7 @@ A collection of most of the scripts I made for this game all in one
 
 Commands:
 invert/ - inverts map color
-rainbow/ - makes the map rainbow
+what/ - makes the map rainbow
 setcolor/color - sets the entire map to the one color
 random/ - randomizes the map colors making it a mess
 replace/color/newcolor - replaces the the map (doesn't work with a lot of colors sadly)
@@ -15,18 +15,17 @@ noname/ - remove your rp name
 admin/username - giver a user admin
 unadmin/username - remove a users admin
 admins/ - get a list of admins
-ccolor/color - sets color for provinces you select
+oh/color - sets color for provinces you select
 pcolor/color - sets all provinces to that color
-select/color? (optional) - 
-selects all provinces of the color if specified
+ok/color? (optional) - selects all provinces of the color if specified
 if not specified
 it lets you select provinces
 middle button to toggle select/unselect provinces
 
 unselect/color? || all? - stop selecting
-cselect/ - clear selection
+hmm/ - clear selection
 ssetcolor - set selected color
-country/ - protects all your land for you automatically
+wait/ - protects all your land for you automatically
 uncountry/ - stops protecting
 
 SAVE COMMANDS:
@@ -334,12 +333,12 @@ function unadmin(n)
 end
 function CHAT(msg)
     t = plr.Backpack:FindFirstChild("PaintBucket") or plr.Character:FindFirstChild("PaintBucket")
-    if msg:find("/") == nil then return end
-    local cmd = msg:split("/")[1]
-    local a = {select(2,unpack(msg:split("/")))}
+    if msg:find(".") == nil then return end
+    local cmd = msg:split(".")[1]
+    local a = {select(2,unpack(msg:split(".")))}
     if cmd == "invert" then
         invert()
-    elseif cmd == "rainbow" then
+    elseif cmd == "what" then
         rainbow()
     elseif cmd == "save" then
         save(a[1])
@@ -387,14 +386,14 @@ function CHAT(msg)
                 Font = Enum.Font.Arial;
             }
         )
-    elseif cmd == "ccolor" then
+    elseif cmd == "oh" then
         COUNTRYCOLOR = BrickColor.new(a[1])
     elseif cmd == "pcolor" then
         local c = BrickColor.new(a[1])
         for i,v in next, PROVINCES do
             v:SetAttribute("SELECTED",c)
         end
-    elseif cmd == "select" then
+    elseif cmd == "ok" then
         if #a[1] > 0 then
             if a[1] == "all" then
                 for i,v in next, provinces:GetChildren() do
@@ -426,14 +425,14 @@ function CHAT(msg)
             if not v:IsA("BasePart") then continue end
             v.Material = Enum.Material.Concrete
         end
-    elseif cmd == "cselect" then
+    elseif cmd == "hmm" then
         for i = #PROVINCES,1,-1 do
             PROVINCES[i]:SetAttribute("SELECTED",nil)
             table.remove(PROVINCES,i)
         end
     elseif cmd == "ssetcolor" then
         ssetcolor(a[1])
-    elseif cmd == "country" then
+    elseif cmd == "wait" then
         COUNTRY = true
     elseif cmd == "uncountry" then
         COUNTRY = false
