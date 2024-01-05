@@ -206,7 +206,7 @@ Title.BorderSizePixel = 0
 Title.Size = UDim2.new(0, 250, 0, 20)
 Title.Font = Enum.Font.SourceSans
 Title.TextSize = 18
-Title.Text = "Infinite Yield FE [BETTER VERSION] v" .. currentVersion
+Title.Text = "Infinite Yield FE [BV] v" .. currentVersion
 
 do
 	local emoji = ({
@@ -4265,6 +4265,7 @@ CMDs[#CMDs + 1] = {NAME = 'remotespy / rspy', DESC = 'Opens Simple Spy V3'}
 CMDs[#CMDs + 1] = {NAME = 'audiologger / alogger', DESC = 'Opens Edges audio logger'}
 CMDs[#CMDs + 1] = {NAME = 'serverinfo / info', DESC = 'Gives you info about the server'}
 CMDs[#CMDs + 1] = {NAME = 'jobid', DESC = 'Copies the games JobId to your clipboard'}
+CMDs[#CMDs + 1] = {NAME = 'teleportscript', DESC = 'Teleports player into another player for 5 seconds'}
 CMDs[#CMDs + 1] = {NAME = 'notifyjobid', DESC = 'Notifies you the games JobId'}
 CMDs[#CMDs + 1] = {NAME = 'rejoin / rj', DESC = 'Makes you rejoin the game'}
 CMDs[#CMDs + 1] = {NAME = 'autorejoin / autorj', DESC = 'Automatically rejoins the server if you get kicked/disconnected'}
@@ -6626,6 +6627,8 @@ addcmd('jobid',{},function(args, speaker)
 	local jobId = 'Roblox.GameLauncher.joinGameInstance('..PlaceId..', "'..JobId..'")'
 	toClipboard(jobId)
 end)
+
+
 
 addcmd('notifyjobid',{},function(args, speaker)
 	notify('JobId / PlaceId',JobId..' / '..PlaceId)
@@ -10181,6 +10184,10 @@ end)
 addcmd('antifling',{'af'},function(args, speaker)
     notify('Loading', 'Hold on a sec')
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/antifling_47bb9184ad39be72ef4c96842c6770ee.txt_73135124ccdfd0a4bae83c857ec9cba3.txt'))()
+end)
+
+addcmd('teleportscript',{},function(args, speaker)
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/teleport%20player%205%20seconds.lua'))()
 end)
 
 addcmd('quirkycmd',{},function(args, speaker)
