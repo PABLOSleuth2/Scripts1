@@ -4251,10 +4251,10 @@ end
 CMDs = {}
 CMDs[#CMDs + 1] = {NAME = 'discord / support / help', DESC = 'Invite to the Infinite Yield support server.'}
 CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads old Roblox console'}
-CMDs[#CMDs + 1] = {NAME = 'explorer / dex', DESC = 'Opens DEX by Moon'}
-CMDs[#CMDs + 1] = {NAME = 'olddex / odex', DESC = 'Opens Old DEX by Moon'}
 CMDs[#CMDs + 1] = {NAME = 'antifling / af', DESC = 'antifling'}
 CMDs[#CMDs + 1] = {NAME = 'aimbot / aimbotv1', DESC = 'aimbot'}
+CMDs[#CMDs + 1] = {NAME = 'aimbot2 / aimbotv2', DESC = 'aimbot'}
+CMDs[#CMDs + 1] = {NAME = 'QuirkyCMD', DESC = 'Another Fe Admin Script'}
 CMDs[#CMDs + 1] = {NAME = 'bypasschat / bpc', DESC = 'bypass chat bruh'}
 CMDs[#CMDs + 1] = {NAME = 'chattranslator / chattrans', DESC = 'Google Translator, type >sp,ko,ru,po and more. to pick languages'}
 CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads old Roblox console'}
@@ -7534,6 +7534,8 @@ addcmd('hideiy',{},function(args, speaker)
 	if not (args[1] and tostring(args[1]) == 'nonotify') then notify('IY Hidden','You can press the prefix key to access the command bar') end
 end)
 
+
+
 addcmd('showiy',{'unhideiy'},function(args, speaker)
 	isHidden = false
 	minimizeNum = -20
@@ -10146,6 +10148,14 @@ addcmd('aimbot', {'aimbotv1'}, function(args, speaker)
 
     loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/aimbot.lua'))()
 end)
+
+addcmd('aimbot2', {'aimbotv2'}, function(args, speaker)
+
+    notify('Loading', 'Hold on a sec')
+
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/aimbot_v2.lua'))()
+end)
+
 addcmd('teleporter', {'tpr'}, function(args, speaker)
     loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/teleport%20player%205%20seconds.lua'))()
 end)
@@ -10173,6 +10183,12 @@ addcmd('antifling',{'af'},function(args, speaker)
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/antifling_47bb9184ad39be72ef4c96842c6770ee.txt_73135124ccdfd0a4bae83c857ec9cba3.txt'))()
 end)
 
+addcmd('quirkycmd',{},function(args, speaker)
+-- QuirkyCMD made by quirky anime boy (smokedoutlocedout on discord)
+-- Discord server with games list, plugins, etc:  https://discord.gg/aG6KdRje3x
+-- Testing game: https://www.roblox.com/games/7593160773
+loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
+end)
 addcmd('mobilekeyboard',{'mbk'},function(args, speaker)
     notify('Loading', 'Hold on a sec')
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/BatuKvi123/Keyboardv3/main/mobKeyboard"))()
