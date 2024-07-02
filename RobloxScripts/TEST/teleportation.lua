@@ -5,7 +5,6 @@ local TeleportCooldown = 5 -- seconds
 
 local ScreenGui = Instance.new("ScreenGui", game.Players.LocalPlayer:WaitForChild("PlayerGui"))
 ScreenGui.ResetOnSpawn = false
-loadstring(game:HttpGet("https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/Fling%20GUI.txt",true))()
 local PlayerListFrame = Instance.new("ScrollingFrame", ScreenGui)
 PlayerListFrame.Size = UDim2.new(0.2, 0, 0.6, 0)
 PlayerListFrame.Position = UDim2.new(0, 10, 0, 10)
@@ -87,3 +86,5 @@ CopyTeleportButton.MouseButton1Click:Connect(function()
         warn("Local character not found")
     end
 end)
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/Fling%20GUI.txt",true))()
