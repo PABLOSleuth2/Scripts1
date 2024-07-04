@@ -4351,6 +4351,7 @@ CMDs[#CMDs + 1] = {NAME = 'loopbring [plr] [distance] [delay] (CLIENT)', DESC = 
 CMDs[#CMDs + 1] = {NAME = 'unloopbring [plr]', DESC = 'Undoes loopbring'}
 CMDs[#CMDs + 1] = {NAME = 'freeze / fr [plr] (CLIENT)', DESC = 'Freezes a player'}
 CMDs[#CMDs + 1] = {NAME = 'freezeanims', DESC = 'Freezes your animations / pauses your animations - Does not work on default animations'}
+CMDs[#CMDs + 1] = {NAME = 'tpt', DESC = 'teleports into target player with fling'}
 CMDs[#CMDs + 1] = {NAME = 'unfreezeanims', DESC = 'Unfreezes your animations / plays your animations'}
 CMDs[#CMDs + 1] = {NAME = 'thaw / unfr [plr] (CLIENT)', DESC = 'Unfreezes a player'}
 CMDs[#CMDs + 1] = {NAME = 'tpposition / tppos [X Y Z]', DESC = 'Teleports you to certain coordinates'}
@@ -4500,6 +4501,7 @@ CMDs[#CMDs + 1] = {NAME = 'fastbring [plr] (TOOL)', DESC = 'Brings a player (les
 CMDs[#CMDs + 1] = {NAME = 'teleport / tp [plr] [plr] (TOOL)', DESC = 'Teleports a player to another player (YOU NEED A TOOL)'}
 CMDs[#CMDs + 1] = {NAME = 'fastteleport / fasttp [plr] [plr] (TOOL)', DESC = 'Teleports a player to another player (less reliable) (YOU NEED A TOOL)'}
 CMDs[#CMDs + 1] = {NAME = 'fling', DESC = 'Flings anyone you touch'}
+CMDs[#CMDs + 1] = {NAME = 'flingr15', DESC = 'Flings anyone you touch'}
 CMDs[#CMDs + 1] = {NAME = 'unfling', DESC = 'Disables the fling command'}
 CMDs[#CMDs + 1] = {NAME = 'invisfling', DESC = 'Enables invisible fling'}
 CMDs[#CMDs + 1] = {NAME = 'loopoof', DESC = 'Loops everyones character sounds (everyone can hear)'}
@@ -10163,7 +10165,7 @@ addcmd('teleporter', {'tpr'}, function(args, speaker)
     loadstring(game:HttpGet('https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/teleport%20player%205%20seconds.lua'))()
 end)
 
-addcmd('flingv2', {'flingvv2'}, function(args, speaker)
+addcmd('flingr15', {'flingrr15'}, function(args, speaker)
     notify('Loading', 'Hold on a sec')
     loadstring(game:HttpGet("https://raw.githubusercontent.com/0Ben1/fe./main/Fling%20GUI"))()
     notify('Success', 'Script Worked Go to player and it automatically fling')
@@ -10173,6 +10175,12 @@ end)
 addcmd('rizz', {'rizzz'}, function(args, speaker)
     notify('Loading', 'Hold on a sec')
     loadstring(game:HttpGet("https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/rizz.lua"))()
+    notify('Success', 'Script Worked it automatically say rizz')
+end)
+
+addcmd('tpt', {'tptt'}, function(args, speaker)
+    notify('Loading', 'Hold on a sec')
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/PABLOSleuth2/Scripts1/main/RobloxScripts/TEST/teleportation.lua"))()
     notify('Success', 'Script Worked it automatically say rizz')
 end)
 
